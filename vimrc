@@ -198,6 +198,14 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Indentation setup per language
+" Python
+autocmd Filetype python
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79
+
 " Pretty unicode haskell symbols
 let g:haskell_conceal_wide = 1
 let g:haskell_conceal_enumerations = 1
