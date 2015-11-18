@@ -121,7 +121,7 @@ nnoremap <leader>ma :set mouse=a<cr>
 nnoremap <leader>mo :set mouse=<cr>
 
 " Default to mouse mode on
-set mouse=a
+"set mouse=a
 " }}}
 
 " Colors and Fonts {{{
