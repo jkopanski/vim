@@ -55,9 +55,9 @@ nnoremap Q <nop>
 set so=7
 
 " Turn on the WiLd menu
-" set wildmenu
+set wildmenu
 " Tab-complete files up to longest unambiguous prefix
-" set wildmode=list:longest,full
+set wildmode=list:longest,full
 
 " Always show current position
 set ruler
@@ -197,6 +197,14 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" Indentation setup per language
+" Python
+autocmd Filetype python
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79
 
 " Pretty unicode haskell symbols
 let g:haskell_conceal_wide = 1
