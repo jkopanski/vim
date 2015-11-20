@@ -54,6 +54,9 @@ nnoremap Q <nop>
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
+" Turn on vim-airline at start
+set laststatus=2
+
 " Turn on the WiLd menu
 set wildmenu
 " Tab-complete files up to longest unambiguous prefix
