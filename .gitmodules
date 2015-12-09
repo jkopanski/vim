@@ -12,4 +12,7 @@
 	url = https://github.com/bling/vim-airline.git
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
+  url = https://github.com/digitaltoad/vim-jade.git
+[submodule "bundle/verilog_systemverilog.vim"]
+  path = bundle/verilog_systemverilog.vim
+  url = https://github.com/vhda/verilog_systemverilog.vim.git
