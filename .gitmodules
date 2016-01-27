@@ -16,3 +16,6 @@
 [submodule "bundle/verilog_systemverilog.vim"]
   path = bundle/verilog_systemverilog.vim
   url = https://github.com/vhda/verilog_systemverilog.vim.git
+[submodule "bundle/vim-jsx"]
+	path = bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
