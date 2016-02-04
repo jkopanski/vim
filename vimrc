@@ -73,6 +73,9 @@ if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
+" Highlight 80 column
+let &colorcolumn="80,".join(range(120,500),",")
+
 " Height of the command bar
 set cmdheight=1
 
