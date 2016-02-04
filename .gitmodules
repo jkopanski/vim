@@ -19,3 +19,6 @@
 [submodule "bundle/vim-jsx"]
 	path = bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "bundle/psc-ide-vim"]
+	path = bundle/psc-ide-vim
+	url = https://github.com/raichoo/purescript-vim.git
