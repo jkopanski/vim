@@ -148,6 +148,16 @@ syntax enable
 "hi Search ctermfg=white ctermbg=173 cterm=none guifg=#ffffff guibg=#e5786d gui=none
 "hi! link Visual Search
 
+" Fix indent-guide colors
+let indent_guides_auto_colors = 0
+if 'dark' == &background
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=black
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
+else
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=0
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
+endif
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
