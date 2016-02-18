@@ -232,3 +232,10 @@ let g:haskell_conceal_enumerations = 1
 let hscoptions="STEMxRtBD"
 
 " }}}
+
+" Spell checking {{{
+
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+
+" }}}
