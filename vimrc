@@ -57,6 +57,9 @@ set so=7
 " Turn on vim-airline at start
 set laststatus=2
 
+" Use powerline font for vim-airline
+let g:airline_powerline_fonts = 1
+
 " Turn on the WiLd menu
 set wildmenu
 " Tab-complete files up to longest unambiguous prefix
