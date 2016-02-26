@@ -29,14 +29,15 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = "/"
+let g:mapleader = "/"
 
 " Leader key timeout
 set tm=2000
 
 " Allow the normal use of "," by pressing it twice
-noremap ,, ,
+" Don't need this since chenged leader to /
+" noremap ,, ,
 
 " Use par for prettier line formatting
 set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
@@ -281,5 +282,21 @@ map <leader>ap :Align
 
 " Enable some tabular presets for Haskell
 let g:haskell_tabular = 1
+
+" }}}
+
+" Haskell related stuff {{{
+
+" ghc-mode code completion capabilities
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+
+" Align on haskell related symobls
+" Align on arrows ->
+map <Leader>a- :Align -><CR>
+"Align on ::
+map <Leader>a; :Align ::<CR>
 
 " }}}
