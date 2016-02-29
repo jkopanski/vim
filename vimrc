@@ -156,7 +156,7 @@ syntax enable
 let indent_guides_auto_colors = 0
 if 'dark' == &background
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=black
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
+"  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
 else
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=0
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
