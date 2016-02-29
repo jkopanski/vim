@@ -285,18 +285,31 @@ let g:haskell_tabular = 1
 
 " }}}
 
-" Haskell related stuff {{{
+" Haskell {{{
 
 " ghc-mode code completion capabilities
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
+map <silent> tc :GhcModCheck<CR>
 
 " Align on haskell related symobls
 " Align on arrows ->
 map <Leader>a- :Align -><CR>
 "Align on ::
 map <Leader>a; :Align ::<CR>
+
+" }}}
+
+" JavaScript {{{
+
+" set syntastic checker
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+" prefer local eslint over global one
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " }}}
