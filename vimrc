@@ -242,6 +242,8 @@ let hscoptions="STEMxRtBD"
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+" Change default dictionary
+set spelllang=pl_pl
 " }}}
 
 " NERDTree {{{
