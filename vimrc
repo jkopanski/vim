@@ -282,12 +282,12 @@ map <Leader>a<bar> :Align <bar><CR>
 " Prompt for align character
 map <leader>ap :Align
 
-" Enable some tabular presets for Haskell
-let g:haskell_tabular = 1
-
 " }}}
 
 " Haskell {{{
+
+" Use stylish haskell instead of par for haskell buffers
+autocmd FileType haskell let &formatprg="stylish-haskell"
 
 " ghc-mode code completion capabilities
 map <silent> tw :GhcModTypeInsert<CR>
@@ -302,6 +302,9 @@ map <Leader>a- :Align -><CR>
 "Align on ::
 map <Leader>a; :Align ::<CR>
 
+" Enable some tabular presets for Haskell
+let g:haskell_tabular = 1
+
 " }}}
 
 " JavaScript {{{
@@ -313,5 +316,65 @@ let g:syntastic_javascript_eslint_exec = 'eslint_d'
 " prefer local eslint over global one
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" }}}
+
+" Tags {{{
+
+set tags=tags;/,codex.tags;/
+
+let g:tagbar_type_haskell = {
+  \ 'ctagsbin'  : 'hasktags',
+  \ 'ctagsargs' : '-x -c -o-',
+  \ 'kinds'     : [
+    \ 'm:modules:0:1',
+    \ 'd:data: 0:1',
+    \ 'd_gadt: data gadt:0:1',
+    \ 't:type names:0:1',
+    \ 'nt:new types:0:1',
+    \ 'c:classes:0:1',
+    \ 'cons:constructors:1:1',
+    \ 'c_gadt:constructor gadt:1:1',
+    \ 'c_a:constructor accessors:1:1',
+    \ 'ft:function types:1:1',
+    \ 'fi:function implementations:0:1',
+    \ 'o:others:0:1'
+  \ ],
+  \ 'sro'        : '.',
+  \ 'kind2scope' : {
+    \ 'module'   : 'm',
+    \ 'class'    : 'c',
+    \ 'data'     : 'd',
+    \ 'type'     : 't'
+  \ },
+  \ 'scope2kind' : {
+    \ 'module'   : 'm',
+    \ 'class'    : 'c',
+    \ 'data'     : 'd',
+    \ 'type'     : 't'
+  \}
+\ }
+
+" Generate haskell tags with codex and hscope
+ map <leader>tg :!codex update --force<CR>:call system("git-hscope -X TemplateHaskell")<CR><CR>:call LoadHscope()<CR>
+
+map <leader>tt :TagbarToggle<CR>
+
+set csprg=hscope
+set csto=1 " search codex tags first
+set cst
+set csverb
+nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
+" Automatically make cscope connections
+function! LoadHscope()
+  let db = findfile("hscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/hscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  endif
+endfunction
+au BufEnter /*.hs call LoadHscope()
 
 " }}}
