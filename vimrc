@@ -308,6 +308,9 @@ map <Leader>a; :Align ::<CR>
 " Enable some tabular presets for Haskell
 let g:haskell_tabular = 1
 
+" Recognize *.y as happy syntax, not yacc
+au BufRead,BufNewFile *.y set filetype=happy
+
 " }}}
 
 " JavaScript {{{
