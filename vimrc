@@ -7,10 +7,6 @@ set shell=/bin/sh
 
 syntax enable
 
-" solarized colorscheme
-set background=dark
-colorscheme solarized
-
 " use indentation for folds
 set foldmethod=indent
 set foldnestmax=5
@@ -142,6 +138,7 @@ nnoremap <leader>mo :set mouse=<cr>
 " solarized colorscheme
 set background=dark
 colorscheme solarized
+let g:solarized_termtrans=1
 
 " Enable syntax highlighting
 syntax enable
