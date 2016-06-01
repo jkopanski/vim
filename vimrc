@@ -287,6 +287,11 @@ map <leader>ap :Align
 
 " }}}
 
+" Ledger {{{
+au BufNewFile,BufRead *.ldg,*.ledger,*.journal setf ledger | comp ledger
+
+" }}}
+
 " Haskell {{{
 
 " Use stylish haskell instead of par for haskell buffers
