@@ -314,11 +314,11 @@ au BufRead,BufNewFile *.y set filetype=happy
 
 " set syntastic checker
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_javascript_eslint_exec = 'eslint'
 
 " prefer local eslint over global one
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
-let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
+" let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " }}}
 
