@@ -36,13 +36,10 @@ set tm=2000
 
 " Allow the normal use of "," by pressing it twice
 " Don't need this since chenged leader to /
-" noremap ,, ,
+"noremap // /
 
 " Use par for prettier line formatting
 set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
-
-" Use stylish haskell instead of par for haskell buffers
-autocmd FileType haskell let &formatprg="stylish-haskell"
 
 " Kill the damned Ex mode.
 nnoremap Q <nop>
@@ -59,6 +56,9 @@ set laststatus=2
 
 " Use powerline font for vim-airline
 let g:airline_powerline_fonts = 1
+
+" airline smarter tabline
+let g:airline#extensions#tabline#enabled = 1
 
 " Turn on the WiLd menu
 set wildmenu
@@ -140,6 +140,9 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
+" Set airline theme
+let g:airline_theme='solarized'
+
 " Enable syntax highlighting
 syntax enable
 
@@ -185,7 +188,7 @@ if has("gui_running")
   set guioptions-=e
   set guitablabel=%M\ %t
 endif
-" set t_Co=256
+set t_Co=256
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -291,15 +294,14 @@ au BufNewFile,BufRead *.ldg,*.ledger,*.journal setf ledger | comp ledger
 
 " Haskell {{{
 
+autocmd Filetype haskell
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79
+
 " Use stylish haskell instead of par for haskell buffers
 autocmd FileType haskell let &formatprg="stylish-haskell"
-
-" ghc-mode code completion capabilities
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-map <silent> tc :GhcModCheck<CR>
 
 " Align on haskell related symobls
 " Align on arrows ->
@@ -307,11 +309,12 @@ map <Leader>a- :Align -><CR>
 "Align on ::
 map <Leader>a; :Align ::<CR>
 
-" Enable some tabular presets for Haskell
-let g:haskell_tabular = 1
-
 " Recognize *.y as happy syntax, not yacc
 au BufRead,BufNewFile *.y set filetype=happy
+
+let hvn_config_dir = $HOME . "/.vim"
+let hvn_config_haskell = expand(resolve(hvn_config_dir . "/vimrc.haskell"))
+execute 'source '. hvn_config_haskell
 
 " }}}
 
@@ -328,40 +331,6 @@ let g:syntastic_javascript_eslint_exec = 'eslint'
 " }}}
 
 " Tags {{{
-
-set tags=tags;/,codex.tags;/
-
-let g:tagbar_type_haskell = {
-  \ 'ctagsbin'  : 'hasktags',
-  \ 'ctagsargs' : '-x -c -o-',
-  \ 'kinds'     : [
-    \ 'm:modules:0:1',
-    \ 'd:data: 0:1',
-    \ 'd_gadt: data gadt:0:1',
-    \ 't:type names:0:1',
-    \ 'nt:new types:0:1',
-    \ 'c:classes:0:1',
-    \ 'cons:constructors:1:1',
-    \ 'c_gadt:constructor gadt:1:1',
-    \ 'c_a:constructor accessors:1:1',
-    \ 'ft:function types:1:1',
-    \ 'fi:function implementations:0:1',
-    \ 'o:others:0:1'
-  \ ],
-  \ 'sro'        : '.',
-  \ 'kind2scope' : {
-    \ 'module'   : 'm',
-    \ 'class'    : 'c',
-    \ 'data'     : 'd',
-    \ 'type'     : 't'
-  \ },
-  \ 'scope2kind' : {
-    \ 'module'   : 'm',
-    \ 'class'    : 'c',
-    \ 'data'     : 'd',
-    \ 'type'     : 't'
-  \}
-\ }
 
 let g:tagbar_type_systemverilog = {
   \ 'ctagstype'   : 'SystemVerilog',
@@ -401,26 +370,6 @@ let g:tagbar_type_systemverilog = {
   \ },
 \ }
 
-" Generate haskell tags with codex and hscope
- map <leader>tg :!codex update --force<CR>:call system("git-hscope -X TemplateHaskell")<CR><CR>:call LoadHscope()<CR>
-
 map <leader>tt :TagbarToggle<CR>
-
-set csprg=hscope
-set csto=1 " search codex tags first
-set cst
-set csverb
-nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
-" Automatically make cscope connections
-function! LoadHscope()
-  let db = findfile("hscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/hscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  endif
-endfunction
-au BufEnter /*.hs call LoadHscope()
 
 " }}}
