@@ -73,3 +73,6 @@
 [submodule "bundle/hlint-refactor-vim"]
 	path = bundle/hlint-refactor-vim
 	url = https://github.com/mpickering/hlint-refactor-vim.git
+[submodule "bundle/vim-hoogle"]
+	path = bundle/vim-hoogle
+	url = https://github.com/Twinside/vim-hoogle.git
