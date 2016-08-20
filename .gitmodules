@@ -82,3 +82,6 @@
 [submodule "bundle/lucario"]
 	path = bundle/lucario
 	url = https://github.com/raphamorim/lucario.git
+[submodule "bundle/Zenburn"]
+	path = bundle/Zenburn
+	url = https://github.com/jnurmine/Zenburn.git
