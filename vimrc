@@ -136,12 +136,12 @@ nnoremap <leader>mo :set mouse=<cr>
 " Colors and Fonts {{{
 
 " solarized colorscheme
-set background=dark
-colorscheme solarized
+" set background=dark
+colorscheme lucario
 let g:solarized_termtrans=1
 
 " Set airline theme
-let g:airline_theme='solarized'
+let g:airline_theme='papercolor'
 
 " Enable syntax highlighting
 syntax enable
