@@ -250,6 +250,14 @@ map <leader>ss :setlocal spell!<cr>
 set spelllang=pl_pl
 " }}}
 
+" Slime {{{
+
+vmap <silent> <Leader>rs <Plug>SendSelectionToTmux
+nmap <silent> <Leader>rs <Plug>NormalModeSendToTmux
+nmap <silent> <Leader>rv <Plug>SetTmuxVars
+
+" }}}
+
 " NERDTree {{{
 
 " Close nerdtree after a file is selected
