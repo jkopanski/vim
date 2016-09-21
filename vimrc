@@ -299,6 +299,8 @@ map <leader>ap :Align
 " Ledger {{{
 au BufNewFile,BufRead *.ldg,*.ledger,*.journal setf ledger | comp ledger
 
+let g:ledger_bin = "hledger"
+
 " }}}
 
 " Haskell {{{
