@@ -312,7 +312,7 @@ autocmd Filetype haskell
   \ set textwidth=79
 
 " Use stylish haskell instead of par for haskell buffers
-autocmd FileType haskell let &formatprg="stylish-haskell"
+" autocmd FileType haskell let &formatprg="stylish-haskell"
 
 " Align on haskell related symobls
 " Align on arrows ->
@@ -326,6 +326,20 @@ au BufRead,BufNewFile *.y set filetype=happy
 let hvn_config_dir = $HOME . "/.vim"
 let hvn_config_haskell = expand(resolve(hvn_config_dir . "/vimrc.haskell"))
 execute 'source '. hvn_config_haskell
+
+" }}}
+
+" Scala {{{
+
+autocmd Filetype scala
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79
+
+let scala_config_dir = $HOME . "/.vim"
+let scala_config = expand(resolve(scala_config_dir . "/vimrc.scala"))
+execute 'source '. scala_config
 
 " }}}
 
