@@ -100,3 +100,6 @@
 [submodule "bundle/ensime-vim"]
 	path = bundle/ensime-vim
 	url = https://github.com/ensime/ensime-vim.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
