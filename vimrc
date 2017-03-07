@@ -306,13 +306,10 @@ let g:ledger_bin = "hledger"
 " Haskell {{{
 
 autocmd Filetype haskell
-  \ set tabstop=4 |
-  \ set softtabstop=4 |
-  \ set shiftwidth=4 |
+  \ set tabstop=2 |
+  \ set softtabstop=2 |
+  \ set shiftwidth=2 |
   \ set textwidth=79
-
-" Use stylish haskell instead of par for haskell buffers
-" autocmd FileType haskell let &formatprg="stylish-haskell"
 
 " Align on haskell related symobls
 " Align on arrows ->
@@ -323,9 +320,10 @@ map <Leader>a; :Align ::<CR>
 " Recognize *.y as happy syntax, not yacc
 au BufRead,BufNewFile *.y set filetype=happy
 
-let hvn_config_dir = $HOME . "/.vim"
-let hvn_config_haskell = expand(resolve(hvn_config_dir . "/vimrc.haskell"))
-execute 'source '. hvn_config_haskell
+let haskell_config_dir = $HOME . "/.vim"
+let haskell_config = expand(resolve(haskell_config_dir . "/vimrc.haskell"))
+" autocmd FileType haskell 
+execute 'source '. haskell_config
 
 " }}}
 
@@ -337,9 +335,9 @@ autocmd Filetype scala
   \ set shiftwidth=2 |
   \ set textwidth=79
 
-let scala_config_dir = $HOME . "/.vim"
-let scala_config = expand(resolve(scala_config_dir . "/vimrc.scala"))
-execute 'source '. scala_config
+let scala_config_dir = $HOME . "/.vim" |
+let scala_config = expand(resolve(scala_config_dir . "/vimrc.scala")) |
+au Filetype scala execute 'source '. scala_config
 
 " }}}
 
@@ -347,11 +345,18 @@ execute 'source '. scala_config
 
 " set syntastic checker
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+" highlight flow type checker syntax
+let g:javascript_plugin_flow = 1
 
 " prefer local eslint over global one
-" let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
-" let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" use locally installed flow
+" let local_flow = finddir('PATH=$(npm bin):$PATH && which flow')
+" let g:flow#flowpath = local_flow
 
 " }}}
 
