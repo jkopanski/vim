@@ -350,6 +350,9 @@ let g:syntastic_javascript_eslint_exec = 'eslint_d'
 " highlight flow type checker syntax
 let g:javascript_plugin_flow = 1
 
+" it is slow and buggy
+let g:flow#enable = 0
+
 " prefer local eslint over global one
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint_d')
 let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
