@@ -109,3 +109,6 @@
 [submodule "bundle/vim-flow"]
 	path = bundle/vim-flow
 	url = https://github.com/flowtype/vim-flow.git
+[submodule "bundle/vim-cmake"]
+	path = bundle/vim-cmake
+	url = https://github.com/vhdirk/vim-cmake.git
