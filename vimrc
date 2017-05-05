@@ -363,6 +363,16 @@ let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{
 
 " }}}
 
+" C++ {{{
+
+" set syntastic checker
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler = ' -std=c++14 -stdlib=libc++'
+
+" let g:syntastic_cpp_checker = ['clang-check', 'clang-tidy']
+
+" }}}
+
 " Tags {{{
 
 let g:tagbar_type_systemverilog = {
