@@ -44,6 +44,15 @@ set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
 " Kill the damned Ex mode.
 nnoremap Q <nop>
 
+" Easier navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
 " }}}
 
 " VIM user interface {{{
@@ -414,5 +423,15 @@ let g:tagbar_type_systemverilog = {
 \ }
 
 map <leader>tt :TagbarToggle<CR>
+
+" }}}
+
+" Ag {{{
+
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 " }}}
