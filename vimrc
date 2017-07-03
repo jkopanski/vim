@@ -1,6 +1,6 @@
 execute pathogen#infect()
 
-" General {{{
+" General: {{{
 
 " set shell for adec computer
 set shell=/bin/sh
@@ -55,7 +55,7 @@ set splitright
 
 " }}}
 
-" VIM user interface {{{
+" VIM user interface: {{{
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
@@ -143,19 +143,23 @@ nnoremap <leader>mo :set mouse=<cr>
 "set mouse=a
 " }}}
 
-" Colors and Fonts {{{
+" Colors and Fonts: {{{
 
 " solarized colorscheme
 set termguicolors
 set background=light
 colorscheme gruvbox
+let g:gruvbox_italic=1
 " let g:solarized_termtrans=1
 
 " Set airline theme
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox-light'
 
 " Enable syntax highlighting
 syntax enable
+
+" indentLine character to use
+let g:indentLine_char = '┆'
 
 " Adjust signscolumn and syntastic to match wombat
 "hi! link SignColumn LineNr
@@ -165,16 +169,6 @@ syntax enable
 " Use pleasant but very visible search hilighting
 "hi Search ctermfg=white ctermbg=173 cterm=none guifg=#ffffff guibg=#e5786d gui=none
 "hi! link Visual Search
-
-" Fix indent-guide colors
-let indent_guides_auto_colors = 0
-if 'dark' == &background
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=black
-"  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
-else
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey ctermbg=0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
-endif
 
 " Enable filetype plugins
 filetype plugin on
