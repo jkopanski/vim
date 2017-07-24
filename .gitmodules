@@ -121,3 +121,6 @@
 [submodule "bundle/rainbow_parentheses.vim"]
 	path = bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "bundle/firrtl-syntax"]
+	path = bundle/firrtl-syntax
+	url = https://github.com/azidar/firrtl-syntax.git
