@@ -118,3 +118,6 @@
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/firrtl-syntax"]
+	path = bundle/firrtl-syntax
+	url = https://github.com/azidar/firrtl-syntax.git
