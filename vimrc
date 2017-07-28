@@ -348,7 +348,7 @@ au Filetype scala execute 'source '. scala_config
 " JavaScript {{{
 
 " set syntastic checker
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " highlight flow type checker syntax
